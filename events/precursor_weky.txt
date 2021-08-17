@@ -1,0 +1,884 @@
+########################
+#
+# Wekyland Precursor Events
+#
+# 魏启大陆模组先驱者事件链
+#
+########################
+
+namespace = precursor
+
+### 盆景世界
+
+# 该先驱从2300年后每年随机一次
+
+event = {
+	id = precursor.9000
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		mid_year
+	}
+}
+
+# 盆景世界发端
+ship_event = {
+	id = precursor.1
+	title = "precursor.1.name"
+	desc = "precursor.1.desc"
+	picture = GFX_evt_archaeological_dig
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		owner = { is_ai = no }
+		solar_system = { has_star_flag = precursor_1 }
+		solar_system = { NOT = { is_same_value = root.owner.capital_scope.solar_system } }
+		FROM = { 
+			has_anomaly = no 
+			is_star = no
+		}
+		owner = {
+			NOR = { 
+				has_country_flag = vultaum_intro
+				has_country_flag = yuht_intro
+				has_country_flag = first_league_intro
+				has_country_flag = irassian_intro
+				has_country_flag = cybrex_intro
+				has_country_flag = zroni_intro
+				has_country_flag = baol_intro
+			}
+		}
+	}
+	
+	immediate = {
+		owner = { set_country_flag = vultaum_intro }
+	}
+	
+	option = {
+		name = INTERESTING
+		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }
+		owner = {
+			begin_event_chain = {
+				event_chain = "vultaum_chain"
+				target = THIS
+			}
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
+		}
+	}
+}
+
+# Mining Base
+ship_event = {
+	id = precursor.5
+	title = "precursor.5.name"
+	desc = "precursor.5.desc"
+	picture = GFX_evt_outpost
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = { set_country_flag = vultaum_1 }
+		}
+	}
+	
+	option = {
+		name = FASCINATING
+		from = {
+			enable_special_project = {
+				name = "VULTAUM_ARCHEOLOGY_1"
+				location = this
+				owner = root.owner
+			}
+		}
+	}
+}
+
+# Mining Base Project Completed
+ship_event = {
+	id = precursor.6
+	title = "precursor.completed.name"
+	desc = "precursor.6.desc"
+	picture = GFX_evt_archaeological_dig
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "precursor.completed.a"
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
+			add_event_chain_counter = { 
+				event_chain = "vultaum_chain" 
+				counter = "vultaum_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { country_event = { id = precursor.97 } }
+		}
+	}
+}
+
+# Observatory
+ship_event = {
+	id = precursor.10
+	title = "precursor.10.name"
+	desc = "precursor.10.desc"
+	picture = GFX_evt_outpost
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = { set_country_flag = vultaum_2 }
+		}
+	}
+	
+	option = {
+		name = INTERESTING
+		from = {
+			enable_special_project = {
+				name = "VULTAUM_ARCHEOLOGY_2"
+				location = this
+				owner = root.owner
+			}
+		}
+	}
+}
+
+# Observatory Project Completed
+ship_event = {
+	id = precursor.11
+	title = "precursor.completed.name"
+	desc = "precursor.11.desc"
+	picture = GFX_evt_archaeological_dig
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "precursor.completed.a"
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
+			add_event_chain_counter = { 
+				event_chain = "vultaum_chain" 
+				counter = "vultaum_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { country_event = { id = precursor.97 } }
+		}
+	}
+}
+
+# Colony 1
+ship_event = {
+	id = precursor.15
+	title = "precursor.15.name"
+	desc = "precursor.15.desc"
+	picture = GFX_evt_city_ruins
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = { set_country_flag = vultaum_3 }
+		}
+	}
+	
+	option = {
+		name = INTRIGUING
+		from = {
+			enable_special_project = {
+				name = "VULTAUM_ARCHEOLOGY_3"
+				location = this
+				owner = root.owner
+			}
+		}	
+	}
+}
+
+# Colony 1 Project Completed
+ship_event = {
+	id = precursor.16
+	title = "precursor.completed.name"
+	desc = "precursor.16.desc"
+	picture = GFX_evt_archaeological_dig
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "precursor.completed.a"
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
+			add_event_chain_counter = { 
+				event_chain = "vultaum_chain" 
+				counter = "vultaum_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { country_event = { id = precursor.97 } }
+		}
+	}
+}
+
+# Colony 2
+ship_event = {
+	id = precursor.20
+	title = "precursor.15.name"
+	desc = "precursor.20.desc"
+	picture = GFX_evt_city_ruins
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = { set_country_flag = vultaum_4 }
+		}
+	}
+	
+	option = {
+		name = ASTOUNDING
+		from = {
+			enable_special_project = {
+				name = "VULTAUM_ARCHEOLOGY_4"
+				location = this
+				owner = root.owner
+			}
+		}
+	}
+}
+
+# Colony 2 Project Completed
+ship_event = {
+	id = precursor.21
+	title = "precursor.completed.name"
+	desc = "precursor.21.desc"
+	picture = GFX_evt_archaeological_dig
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "precursor.completed.a"
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
+			add_event_chain_counter = { 
+				event_chain = "vultaum_chain" 
+				counter = "vultaum_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { country_event = { id = precursor.97 } }
+		}
+	}
+}
+
+# Colony 3
+ship_event = {
+	id = precursor.25
+	title = "precursor.15.name"
+	desc = "precursor.25.desc"
+	picture = GFX_evt_city_ruins
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = { set_country_flag = vultaum_5 }
+		}
+	}
+	
+	option = {
+		name = REMARKABLE
+		from = {
+			enable_special_project = {
+				name = "VULTAUM_ARCHEOLOGY_5"
+				location = this
+				owner = root.owner
+			}
+		}
+	}
+}
+
+# Colony 3 Project Completed
+ship_event = {
+	id = precursor.26
+	title = "precursor.completed.name"
+	desc = "precursor.26.desc"
+	picture = GFX_evt_archaeological_dig
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "precursor.completed.a"
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
+			add_event_chain_counter = { 
+				event_chain = "vultaum_chain" 
+				counter = "vultaum_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { country_event = { id = precursor.97 } }
+		}
+	}
+}
+
+# Gas Giant Base
+ship_event = {
+	id = precursor.30
+	title = "precursor.30.name"
+	desc = "precursor.30.desc"
+	picture = GFX_evt_ship_in_orbit
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = { set_country_flag = vultaum_6 }
+		}
+	}
+	
+	option = {
+		name = INTERESTING
+		from = {
+			enable_special_project = {
+				name = "VULTAUM_ARCHEOLOGY_6"
+				location = this
+				owner = root.owner
+			}
+		}
+	}
+}
+
+# Gas Giant Base Project Completed
+ship_event = {
+	id = precursor.31
+	title = "precursor.completed.name"
+	desc = "precursor.31.desc"
+	picture = GFX_evt_ship_in_orbit
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "precursor.completed.a"
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
+			add_event_chain_counter = { 
+				event_chain = "vultaum_chain" 
+				counter = "vultaum_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { country_event = { id = precursor.97 } }
+		}
+	}
+}
+
+# Trade Post
+ship_event = {
+	id = precursor.35
+	title = "precursor.35.name"
+	desc = "precursor.35.desc"
+	picture = GFX_evt_outpost
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = { set_country_flag = vultaum_7 }
+		}
+	}
+	
+	option = {
+		name = FASCINATING
+		from = {
+			enable_special_project = {
+				name = "VULTAUM_ARCHEOLOGY_7"
+				location = this
+				owner = root.owner
+			}
+		}
+	}
+}
+
+# Trade Post Project Completed
+ship_event = {
+	id = precursor.36
+	title = "precursor.completed.name"
+	desc = "precursor.36.desc"
+	picture = GFX_evt_archaeological_dig
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "precursor.completed.a"
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
+			add_event_chain_counter = { 
+				event_chain = "vultaum_chain" 
+				counter = "vultaum_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { country_event = { id = precursor.97 } }
+		}
+	}
+}
+
+# Satellite
+ship_event = {
+	id = precursor.40
+	title = "precursor.40.name"
+	desc = "precursor.40.desc"
+	picture = GFX_evt_satellite_in_orbit
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = { set_country_flag = vultaum_8 }
+		}
+	}
+	
+	option = {
+		name = CURIOUS
+		from = {
+			enable_special_project = {
+				name = "VULTAUM_ARCHEOLOGY_8"
+				location = this
+				owner = root.owner
+			}
+		}
+	}
+}
+
+# Satellite Project Completed
+ship_event = {
+	id = precursor.41
+	title = "precursor.completed.name"
+	desc = "precursor.41.desc"
+	picture = GFX_evt_satellite_in_orbit
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "precursor.completed.a"
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
+			add_event_chain_counter = { 
+				event_chain = "vultaum_chain" 
+				counter = "vultaum_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { country_event = { id = precursor.97 } }
+		}
+	}
+}
+
+# Splinter Colony
+ship_event = {
+	id = precursor.45
+	title = "precursor.45.name"
+	desc = "precursor.45.desc"
+	picture = GFX_evt_city_ruins
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = { set_country_flag = vultaum_9 }
+		}
+	}
+	
+	option = {
+		name = INTRIGUING
+		from = {
+			enable_special_project = {
+				name = "VULTAUM_ARCHEOLOGY_9"
+				location = this
+				owner = root.owner
+			}
+		}	
+	}
+}
+
+# Splinter Colony Project Completed
+ship_event = {
+	id = precursor.46
+	title = "precursor.completed.name"
+	desc = "precursor.46.desc"
+	picture = GFX_evt_archaeological_dig
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "precursor.completed.a"
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
+			add_event_chain_counter = { 
+				event_chain = "vultaum_chain" 
+				counter = "vultaum_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { country_event = { id = precursor.97 } }
+		}
+	}
+}
+
+# Virtual Reality Center
+ship_event = {
+	id = precursor.50
+	title = "precursor.50.name"
+	desc = "precursor.50.desc"
+	picture = GFX_evt_ship_in_orbit
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = { set_country_flag = vultaum_10 }
+		}
+	}
+	
+	option = {
+		name = INTERESTING
+		from = {
+			enable_special_project = {
+				name = "VULTAUM_ARCHEOLOGY_10"
+				location = this
+				owner = owner.root
+			}
+		}
+	}
+}
+
+# Virtual Reality Center Project Completed
+ship_event = {
+	id = precursor.51
+	title = "precursor.completed.name"
+	desc = "precursor.51.desc"
+	picture = GFX_evt_ship_in_orbit
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "precursor.completed.a"
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
+			add_event_chain_counter = { 
+				event_chain = "vultaum_chain" 
+				counter = "vultaum_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { country_event = { id = precursor.97 } }
+		}
+	}
+}
+
+# Asteroid Mining Base
+ship_event = {
+	id = precursor.55
+	title = "precursor.55.name"
+	desc = "precursor.55.desc"
+	picture = GFX_evt_mining_station
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = INTERESTING
+		from = {
+			enable_special_project = {
+				name = "VULTAUM_ARCHEOLOGY_11"
+				location = this
+				owner = root.owner
+			}
+		}	
+	}
+}
+
+# Asteroid Mining Base Completed
+ship_event = {
+	id = precursor.56
+	title = "precursor.completed.name"
+	desc = "precursor.56.desc"
+	picture = GFX_evt_mining_station
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "precursor.completed.a"
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
+			add_event_chain_counter = { 
+				event_chain = "vultaum_chain" 
+				counter = "vultaum_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { country_event = { id = precursor.97 } }
+		}
+	}
+}
+
+# Port to Home System events
+country_event = {
+	id = precursor.97
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				NOR = {
+					has_global_flag = vultaum_system_discovered 
+					has_country_flag = vultaum_system
+				}
+				has_completed_event_chain_counter = {
+					event_chain = "vultaum_chain" 
+					counter = "vultaum_artifacts" 
+				}
+			}
+			country_event = { id = precursor.98 }
+		}
+		else_if = {
+			limit = {
+				has_global_flag = vultaum_system_discovered
+				NOT = { has_country_flag = vultaum_system }
+				has_completed_event_chain_counter = {
+					event_chain = "vultaum_chain" 
+					counter = "vultaum_artifacts" 
+				}
+			}
+			country_event = { id = precursor.99 }
+		}
+	}
+}
+
+# Vultaum Home System Discovered (HIDDEN)
+country_event = {
+	id = precursor.98
+	hide_window = yes
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = vultaum_system_discovered
+		set_country_flag = vultaum_system
+		
+		if = {
+			limit = {
+				any_system_within_border = { has_star_flag = precursor_1 }
+			}
+			random_system_within_border = {
+				limit = { has_star_flag = precursor_1 }
+				save_event_target_as = precursor_spawn_system
+			}
+		}
+		else = {
+			random_system_within_border = {
+				save_event_target_as = precursor_spawn_system
+			}
+		}
+		event_target:precursor_spawn_system = {
+			spawn_system = {
+				min_distance = 10
+				max_distance = 30
+				max_jumps = 0
+				initializer = "vultaumar_system"
+			}
+			if = {
+				limit = { last_created_system = { NOT = { has_hyperlane_to = prev } } }
+				add_hyperlane = {
+					from = this
+					to = last_created_system
+				}
+			}
+			else = {
+				add_extra_hyperlane_to_spawned_system_effect = yes
+			}
+		}
+		country_event = { id = precursor.100 days = 2 }
+	}
+}
+
+# Vultaum Home System Discovered (Not First) (HIDDEN)
+country_event = {
+	id = precursor.99
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = vultaum_system
+		country_event = { id = precursor.100 days = 2 }
+	}
+}
+
+# Vultaum Home System Discovered
+country_event = {
+	id = precursor.100
+	title = "precursor.100.name"
+	desc = "precursor.100.desc"
+	picture = GFX_evt_federation_fleet
+	location = event_target:vultaumar
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_system = {
+			limit = { has_star_flag = vultaumar }
+			save_event_target_as = vultaumar
+			random_system_planet = {
+				limit = { has_planet_flag = vultaum_homeworld }
+				save_event_target_as = vultaum_homeworld
+			}
+		}
+		observer_event = { id = observer.56 }
+	}
+	
+	option = {
+		name = "precursor.100.a"
+		end_event_chain = "vultaum_chain"
+		begin_event_chain = {
+			event_chain = "vultaum_homeworld_chain"
+			target = ROOT
+		}
+		event_target:vultaum_homeworld = {
+			enable_special_project = {
+				name = "VULTAUM_HOMEWORLD_PROJECT"
+				location = event_target:vultaum_homeworld
+				owner = ROOT
+			}
+		}
+	}
+}
