@@ -38,6 +38,7 @@ country_event = { # Invoke the new wave
 			event_chain = "weky_crisis_params_chain"
 			counter = "weky_crisis_params_stage_1_years"
 		}
+		NOT = { has_global_flag = weky_crisis_stage1_happened }
 	}
 
 	immediate = {
@@ -45,6 +46,7 @@ country_event = { # Invoke the new wave
 			limit = { is_country_type = default }
 			country_event = { id = weky_crisis.120 }
 		}
+		set_global_flag = weky_crisis_stage1_happened
 	}
 }
 
@@ -71,6 +73,7 @@ country_event = { # Invoke the new wave
 			event_chain = "weky_crisis_params_chain"
 			counter = "weky_crisis_params_stage_2_years"
 		}
+		NOT = { has_global_flag = weky_crisis_stage2_happened }
 	}
 
 	immediate = {
@@ -78,6 +81,7 @@ country_event = { # Invoke the new wave
 			limit = { is_country_type = default }
 			country_event = { id = weky_crisis.130 }
 		}
+		set_global_flag = weky_crisis_stage2_happened
 	}
 }
 
@@ -104,6 +108,7 @@ country_event = { # Invoke the new wave
 			event_chain = "weky_crisis_params_chain"
 			counter = "weky_crisis_params_stage_3_years"
 		}
+		NOT = { has_global_flag = weky_crisis_stage3_happened }
 	}
 
 	immediate = {
@@ -111,6 +116,7 @@ country_event = { # Invoke the new wave
 			limit = { is_country_type = default }
 			country_event = { id = weky_crisis.140 }
 		}
+		set_global_flag = weky_crisis_stage3_happened
 	}
 }
 
