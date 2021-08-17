@@ -23,7 +23,8 @@ event = { # Weiqi Crisis Started
 	immediate = {
 		random_country = {
 			limit = { is_country_type = global_event }
-			
+			country_event = { id = weiqi_crisis.10 days = 200 random = 800 }
+			set_global_flag = weiqi_crisis_happened
 		}
 		begin_event_chain = {
 			event_chain = "weiqi_crisis_chain"
