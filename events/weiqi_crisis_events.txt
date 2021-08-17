@@ -1,7 +1,7 @@
-namespace = weiqi_crisis
+namespace = weky_crisis
 
 country_event = {
-	id = weiqi_crisis.10
+	id = weky_crisis.10
 	hide_window = yes
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -9,24 +9,24 @@ country_event = {
 	immediate = {
 		every_country = {
 			limit = { is_country_type = default }
-			country_event = { id = weiqi_crisis.11 }
+			country_event = { id = weky_crisis.11 }
 		}
 	}
 }
 
 country_event = {
-	id = weiqi_crisis.11
-	title = "weiqi_crisis.11.name"
-	desc = "weiqi_crisis.11.desc"
+	id = weky_crisis.11
+	title = "weky_crisis.11.name"
+	desc = "weky_crisis.11.desc"
 	picture = GFX_evt_physics_research
 	show_sound = event_alien_nature
 
 	is_triggered_only = yes
 
 	option = {
-		name = weiqi_crisis.11.a
+		name = weky_crisis.11.a
 		begin_event_chain = {
-			event_chain = "coming_weiqi_crisis"
+			event_chain = "coming_weky_crisis"
 			target = ROOT
 		}
 	}

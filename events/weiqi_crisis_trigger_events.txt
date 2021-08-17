@@ -1,7 +1,7 @@
-namespace = weiqi_crisis
+namespace = weky_crisis
 
-event = { # Weiqi Crisis Started
-	id = weiqi_crisis.0
+event = { # Weky Crisis Started
+	id = weky_crisis.0
 	hide_window = yes
 
 	is_triggered_only = yes
@@ -13,26 +13,26 @@ event = { # Weiqi Crisis Started
 			end_game_years_passed >= 50
 			any_country = {
 				is_country_type = default
-				has_country_flag = weiqi_event_finish
+				has_country_flag = weky_event_finish
 			}
 			is_active_resolution = resolution_galacticstudies_extradimensional_experimentation
 		}
-		NOT = { has_global_flag = weiqi_crisis_happened }
+		NOT = { has_global_flag = weky_crisis_happened }
 	}
 
 	immediate = {
 		random_country = {
 			limit = { is_country_type = global_event }
-			country_event = { id = weiqi_crisis.10 days = 200 random = 800 }
-			set_global_flag = weiqi_crisis_happened
+			country_event = { id = weky_crisis.10 days = 200 random = 800 }
+			set_global_flag = weky_crisis_happened
 		}
 		begin_event_chain = {
-			event_chain = "weiqi_crisis_chain"
+			event_chain = "weky_crisis_chain"
 			target = ROOT
 		}
 	}
 }
 
-event = { # Weiqi Crisis Ended
-	id = weiqi_crisis.1
+event = { # Weky Crisis Ended
+	id = weky_crisis.1
 }
