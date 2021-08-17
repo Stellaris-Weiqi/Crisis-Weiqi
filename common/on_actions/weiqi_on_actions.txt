@@ -3,3 +3,10 @@ on_five_year_pulse = {
 		weiqi_crisis.0
 	}
 }
+
+# 魏启先驱事件链
+on_yearly_pulse = {
+	events = {
+		precursor.9000
+	}
+}
