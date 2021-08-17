@@ -1,0 +1,5 @@
+on_five_year_pulse = {
+	events = {
+		weiqi_crisis.0
+	}
+}

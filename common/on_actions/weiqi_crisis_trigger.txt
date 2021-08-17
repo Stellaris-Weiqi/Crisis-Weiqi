@@ -1,0 +1,37 @@
+namespace = weiqi_crisis
+
+event = { # Weiqi Crisis Started
+	id = weiqi_crisis.0
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_crises_allowed = yes
+		end_game_years_passed >= 0
+		OR = {
+			end_game_years_passed >= 50
+			any_country = {
+				is_country_type = default
+				has_country_flag = weiqi_event_finish
+			}
+			is_active_resolution = resolution_galacticstudies_extradimensional_experimentation
+		}
+		NOT = { has_global_flag = weiqi_crisis_happened }
+	}
+
+	immediate = {
+		random_country = {
+			limit = { is_country_type = global_event }
+			
+		}
+		begin_event_chain = {
+			event_chain = "weiqi_crisis_chain"
+			target = ROOT
+		}
+	}
+}
+
+event = { # Weiqi Crisis Ended
+	id = weiqi_crisis.1
+}
