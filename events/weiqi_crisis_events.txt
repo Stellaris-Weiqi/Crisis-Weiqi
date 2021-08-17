@@ -25,9 +25,104 @@ country_event = {
 
 	option = {
 		name = weky_crisis.11.a
-		begin_event_chain = {
-			event_chain = "coming_weky_crisis"
-			target = ROOT
+	}
+}
+
+country_event = { # Invoke the new wave
+	id = weky_crisis.12
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_completed_event_chain_counter ={
+			event_chain = "weky_crisis_params_chain"
+			counter = "weky_crisis_params_stage_1_years"
 		}
+	}
+
+	immediate = {
+		every_country = {
+			limit = { is_country_type = default }
+			country_event = { id = weky_crisis.120 }
+		}
+	}
+}
+
+country_event = { # Inform every playable country
+	id = weky_crisis.120
+	title = "weky_crisis.12.name"
+	desc = "weky_crisis.12.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_alien_nature
+
+	is_triggered_only = yes
+	option = {
+		name = weky_crisis.12.a
+	}
+}
+
+country_event = { # Invoke the new wave
+	id = weky_crisis.13
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_completed_event_chain_counter ={
+			event_chain = "weky_crisis_params_chain"
+			counter = "weky_crisis_params_stage_2_years"
+		}
+	}
+
+	immediate = {
+		every_country = {
+			limit = { is_country_type = default }
+			country_event = { id = weky_crisis.130 }
+		}
+	}
+}
+
+country_event = { # Inform every playable country
+	id = weky_crisis.130
+	title = "weky_crisis.13.name"
+	desc = "weky_crisis.13.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_alien_nature
+
+	is_triggered_only = yes
+	option = {
+		name = weky_crisis.13.a
+	}
+}
+
+country_event = { # Invoke the new wave
+	id = weky_crisis.14
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_completed_event_chain_counter ={
+			event_chain = "weky_crisis_params_chain"
+			counter = "weky_crisis_params_stage_3_years"
+		}
+	}
+
+	immediate = {
+		every_country = {
+			limit = { is_country_type = default }
+			country_event = { id = weky_crisis.140 }
+		}
+	}
+}
+
+country_event = { # Inform every playable country
+	id = weky_crisis.140
+	title = "weky_crisis.14.name"
+	desc = "weky_crisis.14.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_alien_nature
+
+	is_triggered_only = yes
+	option = {
+		name = weky_crisis.14.a
 	}
 }

@@ -1,0 +1,22 @@
+weky_crisis_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
+	picture = GFX_evt_archaeological_dig
+	counter = {
+	}
+}
+
+weky_crisis_params_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
+	picture = GFX_evt_archaeological_dig
+	counter = {
+		weky_crisis_params_stage_1_years = {
+			max = 5
+		}
+		weky_crisis_params_stage_2_years = {
+			max = 10
+		}
+		weky_crisis_params_stage_3_years = {
+			max = 15
+		}
+	}
+}
