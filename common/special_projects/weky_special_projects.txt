@@ -1,0 +1,29 @@
+### 魏启先驱事件链
+# 发现第一个星系的特殊项目
+special_project = {
+    key = "WEKY_PRECURSOR_DECODING_PROJECT_1"
+    event_chain = weky_precursor_chain
+    days_to_research = 270
+    tech_department = physics_technology
+    timelimit = -1
+    picture = GFX_evt_ship_in_orbit
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
+    location = no
+    
+    event_scope = country_event
+
+    requirements = {
+
+    }
+    abort_trigger = {
+
+    }
+    on_success = {
+        country_event = {
+            id = weky_precursor.1100
+        }
+    }
+    on_fail = {
+
+    }
+}

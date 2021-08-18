@@ -1,0 +1,8 @@
+# 完成莫诺密码事件链，并不继续深挖
+codes_of_mythics = {
+	country_influence_produces_add = 1.5
+}
+
+pity_of_not_going_on = {
+	all_technology_research_speed = -0.10
+}

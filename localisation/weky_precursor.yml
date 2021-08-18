@@ -1,0 +1,38 @@
+
+### 魏启先驱翻译
+
+# 帝国修正
+
+codes_of_mythics:0 "神秘代码"
+pity_of_not_going_on:0 "止于表面"
+
+# 事件链
+
+weky_precursor_chain_title:0 "魏启世界"
+weky_precursor_chain_desc:0 "我们已经破译了许久回荡在宇宙之间的$Y条纹信号$!，是时候更进一步了..."
+
+weky_precursor.1.name:0 "莫诺密码"
+weky_precursor.1.desc:0 "成功了！考古学家与科学家们无数岁月的努力没有白费，我们对数千年来回荡在虚空中的$Y条纹信号$!的解读有了突破性的进展。现在，这种信号被正式命名为$Y莫诺密码$!。"
+weky_precursor.1.yes:0 "必须继续深入"
+weky_precursor.1.no:0 "我们已经为此浪费太多时间了"
+
+
+weky_precursor.2.name:0 "止于表面"
+weky_precursor.2.desc:0 "$Y莫诺密码$!的研究价值超乎想象！它带领着$NAME$找到了$Y魏启世界$!的美丽遗迹，只可惜第一个发掘该遗迹的文明并不是我们...这对所有曾参与过密码破译的研究者们是一个巨大的打击"
+weky_precursor.2.yes:0 "遗憾"
+
+weky_precursor.3.name:0 "奇迹"
+weky_precursor.3.desc:0 "$Y莫诺密码$!的研究价值超乎想象！它带领着$NAME$找到了$Y魏启世界$!的美丽遗迹，这个爆炸性的消息已经在全银河传播开来。"
+weky_precursor.3.yes:0 "哇哦"
+
+
+weky_precursor.4.name:0 "开始"
+weky_precursor.4.desc:0 "是时候了，我们集合了整个国家最强大的计算机械与最天才的数学头脑，必须承认，我们对$Y莫诺密码$!的认识还相当有限，不过科学家们相信他们已经可以从这些疏疏密密的信号里破译某些东西，这需要一些时间...。"
+weky_precursor.4.yes:0 "不错"
+
+# 发掘第一个星系
+
+weky_precursor.1100.name:0 "群星之间"
+weky_precursor.1100.desc:0 "成功了！经过日夜的猜想、计算与破译，科学家们成功从$Y莫诺密码$!真真假假的伪装中破获了关键信息，这些信息似乎包装了一个坐标，指向了银河中的一个恒星系。"
+weky_precursor.1100.yes:0 "我们需要更多调查"
+

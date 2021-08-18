@@ -1,4 +1,4 @@
-########################
+﻿########################
 #
 # Wekyland Precursor Events
 #
@@ -6,21 +6,183 @@
 #
 ########################
 
-namespace = precursor
+namespace = weky_precursor
 
-### 盆景世界
+### 魏启先驱
 
-# 该先驱从2300年后每年随机一次
+## 事件开端
+# 中期之后，如果没有选择先驱，那么平均每隔一年随机一个完成拦截莫诺密码的玩家国度触发事件
 
 event = {
-	id = precursor.9000
+	id = weky_precursor.0
+	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		mid_game_years_passed > 1
+		NOT = {
+			has_global_flag = weky_precursor_chosen
+		}
+	}
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		random_playable_country = {
+			limit = {
+				has_country_flag = mono_codes_intercepted
+			}
+			country_event = {
+				id = weky_precursor.1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = weky_precursor.1
+	is_triggered_only = yes
+
+	title = "weky_precursor.1.name"	
+	desc = "weky_precursor.1.desc"
+	picture = GFX_evt_ice_asteroids
+	show_sound = event_mystic_reveal
+	
+	# location = event_target:fusion_drive_trail
+
+	trigger = {
+		NOT = {
+			has_global_flag = weky_precursor_chosen
+		}
+	}
+	mean_time_to_happen = { months = 31 }
+
+	option = {
+		name = "weky_precursor.1.yes"
+		owner = {
+			begin_event_chain = {
+				event_chain = "weky_precursor_chain"
+				target = this
+			}
+			country_event = {
+				id = weky_precursor.4
+			}
+		}
+		hidden_effect = {
+			set_global_flag = weky_precursor_chosen
+			set_country_flag = weky_precursor
+		}
+	}
+	
+	option = {
+		name = "weky_precursor.1.no"
+		owner = {
+			add_modifier = {
+				modifier = codes_of_mythics
+				days = -1
+			}
+		}
+		hidden_effect = {
+			set_country_flag = weky_precursor_declined
+		}
+	}
+}
+
+country_event = {
+	id = weky_precursor.2
+	is_triggered_only = yes
+
+
+	title = "weky_precursor.2.name"	
+	desc = "weky_precursor.2.desc"
+	picture = GFX_evt_ice_asteroids
+
+	trigger = {
+		has_country_flag = weky_precursor_declined
+	}
+
+	option = {
+		name = "weky_precursor.2.yes"
+		owner = {
+			remove_modifier = codes_of_mythics
+			add_modifier = {
+				modifier = pity_of_not_going_on
+				days = 180
+			}
+		}
+	}
+}
+
+country_event = {
+	id = weky_precursor.3
 	is_triggered_only = yes
 
 	trigger = {
-		mid_year
+		NOT = {
+			has_country_flag = weky_precursor_declined
+		}
+	}
+	title = "weky_precursor.3.name"	
+	desc = "weky_precursor.3.desc"
+	picture = GFX_evt_ice_asteroids
+
+	option = {
+		name = "weky_precursor.3.yes"
 	}
 }
+
+country_event = {
+	id = weky_precursor.4
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = weky_precursor
+	}
+	title = "weky_precursor.4.name"
+	desc = "weky_precursor.4.desc"
+	picture = GFX_evt_ice_asteroids
+
+	option = {
+		name = "weky_precursor.4.yes"
+		owner = {
+			enable_special_project =  {
+				name = "WEKY_PRECURSOR_DECODING_PROJECT_1"
+			}
+		}
+	}
+}
+
+## 发掘开始
+
+# 第一个星系被发现
+country_event =  {
+	id = weky_precursor.1100
+	title = "weky_precursor.1100.name"
+	desc = "weky_precursor.1100.desc"
+
+	picture = GFX_evt_ice_asteroids
+	show_sound = event_mystic_reveal
+
+	option = {
+		name = "weky_precursor.1100.yes"
+		random_system_within_border = {
+			
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # 盆景世界发端
 ship_event = {
