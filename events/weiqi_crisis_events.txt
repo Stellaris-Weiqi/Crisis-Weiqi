@@ -1,0 +1,134 @@
+namespace = weky_crisis
+
+country_event = {
+	id = weky_crisis.10
+	hide_window = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			limit = { is_country_type = default }
+			country_event = { id = weky_crisis.11 }
+		}
+	}
+}
+
+country_event = {
+	id = weky_crisis.11
+	title = "weky_crisis.11.name"
+	desc = "weky_crisis.11.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_alien_nature
+
+	is_triggered_only = yes
+
+	option = {
+		name = weky_crisis.11.a
+	}
+}
+
+country_event = { # Invoke the new wave
+	id = weky_crisis.12
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_completed_event_chain_counter ={
+			event_chain = "weky_crisis_params_chain"
+			counter = "weky_crisis_params_stage_1_years"
+		}
+		NOT = { has_global_flag = weky_crisis_stage1_happened }
+	}
+
+	immediate = {
+		every_country = {
+			limit = { is_country_type = default }
+			country_event = { id = weky_crisis.120 }
+		}
+		set_global_flag = weky_crisis_stage1_happened
+	}
+}
+
+country_event = { # Inform every playable country
+	id = weky_crisis.120
+	title = "weky_crisis.12.name"
+	desc = "weky_crisis.12.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_alien_nature
+
+	is_triggered_only = yes
+	option = {
+		name = weky_crisis.12.a
+	}
+}
+
+country_event = { # Invoke the new wave
+	id = weky_crisis.13
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_completed_event_chain_counter ={
+			event_chain = "weky_crisis_params_chain"
+			counter = "weky_crisis_params_stage_2_years"
+		}
+		NOT = { has_global_flag = weky_crisis_stage2_happened }
+	}
+
+	immediate = {
+		every_country = {
+			limit = { is_country_type = default }
+			country_event = { id = weky_crisis.130 }
+		}
+		set_global_flag = weky_crisis_stage2_happened
+	}
+}
+
+country_event = { # Inform every playable country
+	id = weky_crisis.130
+	title = "weky_crisis.13.name"
+	desc = "weky_crisis.13.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_alien_nature
+
+	is_triggered_only = yes
+	option = {
+		name = weky_crisis.13.a
+	}
+}
+
+country_event = { # Invoke the new wave
+	id = weky_crisis.14
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_completed_event_chain_counter ={
+			event_chain = "weky_crisis_params_chain"
+			counter = "weky_crisis_params_stage_3_years"
+		}
+		NOT = { has_global_flag = weky_crisis_stage3_happened }
+	}
+
+	immediate = {
+		every_country = {
+			limit = { is_country_type = default }
+			country_event = { id = weky_crisis.140 }
+		}
+		set_global_flag = weky_crisis_stage3_happened
+	}
+}
+
+country_event = { # Inform every playable country
+	id = weky_crisis.140
+	title = "weky_crisis.14.name"
+	desc = "weky_crisis.14.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_alien_nature
+
+	is_triggered_only = yes
+	option = {
+		name = weky_crisis.14.a
+	}
+}

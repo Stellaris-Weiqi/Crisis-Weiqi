@@ -1,12 +1,20 @@
+on_monthly_pulse = {
+	events = {
+		weky_crisis.1
+		weky_crisis.0
+	}
+}
+
 on_five_year_pulse = {
 	events = {
-		weiqi_crisis.0
+		weky_crisis.1
+		weky_crisis.0
 	}
 }
 
 # 魏启先驱事件链
 on_yearly_pulse = {
 	events = {
-		precursor.9000
+		precursor.9000	
 	}
 }
